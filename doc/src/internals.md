@@ -21,7 +21,7 @@ constructor / behaviour in the spec:
 1. `Pass`: The Pass claim states that if all preconditions in the iff block are true, then all executions will succeed, storage will be updated according to the storage block, and the specified return value will, in fact, be returned.
 1. `Fail`: The Fail claim states that should any of the preconditions be false, all executions will revert.
 
-Taken together a succesfull proof of these claims ensures that a given bytecode object implements
+Taken together a successful proof of these claims ensures that a given bytecode object implements
 only the behaviour specified in act *and nothing else*.
 
 ### Timed vs Untimed Instances
@@ -86,7 +86,7 @@ The annotate stage makes any implicit timings explicit. This stage is implemente
 ### Enrichment
 
 The enrich stage adds preconditions to all behaviour / constructor / invariant instances based on
-the types of all variable references. This staged is implemented in
+the types of all variable references. This stage is implemented in
 [Enrich.hs](https://github.com/ethereum/act/blob/master/src/Enrich.hs).
 
 ## Error Handling
@@ -94,6 +94,6 @@ the types of all variable references. This staged is implemented in
 Stages that need to present errors to the user should return an instance of the `Error` type defined
 in [Error.hs](https://github.com/ethereum/act/blob/master/src/Error.hs). This is a modified instance
 of [Data.Validation](https://hackage.haskell.org/package/validation-1.1.2) specialised to the act
-context. This type allows us to accumulate multiple error messsages (useful if e.g. multiple syntax
-errors are present), and we also have unified routines to pretty print these messages.
+context. This type allows us to accumulate multiple error messages (useful if e.g. multiple syntax
+errors are present), and we also have unified routines to print these messages pretty.
 
